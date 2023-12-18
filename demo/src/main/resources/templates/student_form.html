@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="Form.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="http://localhost:8080/">Home</a>
+      <a href="http://localhost:8080/add">Add Studnet</a>
+      <a href="http://localhost:8080/search">Search</a>
+      <a href="http://localhost:8080/delete">Delete</a>
+    </nav>
+
+    <h1>Student Form</h1>
+
+    <div id="dynamicFormsContainer"></div>
+
+    <script>
+      // function submitForms(num) {
+      //   var formData = {};
+      //   for (var i = 1; i <= num; i++) {
+      //     formData["firstnameInput" + i] = $("#firstnameInput" + i).val();
+      //     formData["lastnameInput" + i] = $("#lastnameInput" + i).val();
+      //     formData["gender" + i] = $("#gender" + i).val();
+      //     formData["GPA" + i] = $("#GPA" + i).val();
+      //     formData["level" + i] = $("#level" + i).val();
+      //     formData["address" + i] = $("#address" + i).val();
+      //   }
+      //   console.log(formData);
+      //   $.ajax({
+      //     url: "/submit-forms", // Endpoint mapped in the Spring controller
+      //     type: "POST",
+      //     contentType: "application/json",
+      //     data: JSON.stringify(formData),
+      //     success: function (response) {
+      //       alert("Forms submitted successfully!");
+      //       // Handle the response as needed
+      //     },
+      //     error: function (xhr, status, error) {
+      //       alert("An error occurred while submitting the forms.");
+      //       // Handle the error as needed
+      //     },
+      //   });
+      // }
+    </script>
+    <script src="/add.js" defer="true"></script>
+  </body>
+</html>

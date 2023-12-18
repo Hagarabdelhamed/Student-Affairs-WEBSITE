@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Records</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="delete.css" />
+  </head>
+  <nav>
+    <a href="http://localhost:8080/">Home</a>
+    <a href="http://localhost:8080/add">Add Studnet</a>
+    <a href="http://localhost:8080/search">Search</a>
+    <a href="http://localhost:8080/delete">Delete</a>
+  </nav>
+
+    <h1>Records</h1>
+    <div id="recordsContainer"></div>
+    <form action="" id="deleteform">
+      <label>Enter ID</label>
+      <input name="ID" required />
+      <button type="submit">Delete</button>
+    </form>
+    <script src="/delete.js" defer="true"></script>
+  </body>
+</html>
+
+<!-- <script>
+  $(document).ready(function () {
+    retrieveRecords();
+  });
+
+  function retrieveRecords() {
+    $.ajax({
+      url: "/retrieve-records", // Endpoint mapped in the Spring controller
+      type: "GET",
+      success: function (response) {
+        displayRecords(response);
+      },
+      error: function (xhr, status, error) {
+        alert("An error occurred while retrieving records.");
+        // Handle the error as needed
+      },
+    });
+  }
+
+  function displayRecords(records) {
+    var recordsHtml = "";
+    if (records.length === 0) {
+      recordsHtml = "<p>No records found.</p>";
+    } else {
+      recordsHtml = "<table>";
+      recordsHtml += "<tr>";
+      recordsHtml += "<th>First Name</th>";
+      recordsHtml += "<th>Last Name</th>";
+      recordsHtml += "<th>GPA</th>";
+      recordsHtml += "<th>Actions</th>";
+      recordsHtml += "</tr>";
+      records.forEach(function (record) {
+        recordsHtml += "<tr>";
+        recordsHtml += "<td>" + record.firstname + "</td>";
+        recordsHtml += "<td>" + record.lastname + "</td>";
+        recordsHtml += "<td>" + record.GPA + "</td>";
+        recordsHtml +=
+          '<td><button onclick="deleteRecord(' +
+          record.id +
+          ')">Delete</button></td>';
+        recordsHtml += "</tr>";
+      });
+      recordsHtml += "</table>";
+    }
+    $("#recordsContainer").html(recordsHtml);
+  }
+
+  function deleteRecord(recordId) {
+    $.ajax({
+      url: "/student/Delete", // Endpoint mapped in the Spring controller
+      type: "DELETE",
+      data: {
+        recordId: recordId,
+      },
+      success: function (response) {
+        alert("Record deleted successfully!");
+        retrieveRecords();
+      },
+      error: function (xhr, status, error) {
+        alert("An error occurred while deleting the record.");
+        // Handle the error as needed
+      },
+    });
+  }
+</script> -->

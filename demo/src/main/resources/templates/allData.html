@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+  <link rel="stylesheet" href="data.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="http://localhost:8080/">Home</a>
+    <a href="http://localhost:8080/add">Add Studnet</a>
+    <a href="http://localhost:8080/search">Search</a>
+    <a href="http://localhost:8080/delete">Delete</a>
+  </nav>
+    <h1>Student Table</h1>
+
+<div>
+    <label for="sortBy">Sort Column:</label>
+    <select id="sortBy">
+        <option value="id">ID</option>
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="gender">Gender</option>
+        <option value="gpa">GPA</option>
+        <option value="level">Level</option>
+        <option value="address">Address</option>
+    </select>
+
+    <label for="order">Sort Order:</label>
+    <select id="order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+
+    
+</div>
+   <div id="button"><button onclick="sortTable()">Submit</button></div>
+
+    <table id="studentTable">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>GPA</th>
+            <th>Level</th>
+            <th>Address</th>
+        </tr>
+    </table>
+
+    <script>
+      function sortTable()
+      {
+        let data = {
+          sortBy:document.getElementById("sortBy").value ,
+      order:document.getElementById("order").value
+  }
+        $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      url: "/student/sort",
+      data: JSON.stringify(data),
+      dataType: 'json',
+      cache: false,
+      timeout: 600000,
+      success: function (f) {
+        const tableElement = document.getElementById('studentTable')
+        for (const student of studentsData) {
+              const row = tableElement.insertRow();
+              row.insertCell().textContent = student.id;
+              row.insertCell().textContent = student.firstName;
+              row.insertCell().textContent = student.lastName;
+              row.insertCell().textContent = student.gender;
+              row.insertCell().textContent = student.gpa;
+              row.insertCell().textContent = student.level;
+              row.insertCell().textContent = student.address;
+            }
+      },
+      error: function (e) {
+        console.error(e);
+      }
+  });
+      }
+        fetch('/student') // Replace with the actual endpoint URL
+          .then(response => response.json())
+          .then(studentsData => {
+            const tableElement = document.getElementById('studentTable');
+
+            for (const student of studentsData) {
+              const row = tableElement.insertRow();
+              row.insertCell().textContent = student.id;
+              row.insertCell().textContent = student.firstName;
+              row.insertCell().textContent = student.lastName;
+              row.insertCell().textContent = student.gender;
+              row.insertCell().textContent = student.gpa;
+              row.insertCell().textContent = student.level;
+              row.insertCell().textContent = student.address;
+            }
+            console.log(studentsData);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+    </script>
+</body>
+</html>
+

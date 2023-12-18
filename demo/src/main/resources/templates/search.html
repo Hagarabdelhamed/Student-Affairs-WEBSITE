@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="search.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="http://localhost:8080/">Home</a>
+      <a href="http://localhost:8080/add">Add Studnet</a>
+      <a href="http://localhost:8080/search">Search</a>
+      <a href="http://localhost:8080/delete">Delete</a>
+    </nav>
+
+    <h1>Search</h1>
+    <div>
+      <input type="radio" id="firstNameRadio" name="searchCriteria" value="firstName">
+      <label for="firstNameRadio">First Name</label>
+
+      <input type="radio" id="lastNameRadio" name="searchCriteria" value="lastName">
+      <label for="lastNameRadio">Last Name</label>
+
+      <input type="radio" id="idRadio" name="searchCriteria" value="id">
+      <label for="idRadio">ID</label>
+
+      <input type="radio" id="gpaRadio" name="searchCriteria" value="gpa">
+      <label for="gpaRadio">GPA</label>
+
+      <input type="radio" id="addressRadio" name="searchCriteria" value="address">
+      <label for="addressRadio">Address</label>
+
+      <input type="radio" id="levelRadio" name="searchCriteria" value="level">
+      <label for="levelRadio">Level</label>
+
+      <input type="radio" id="genderRadio" name="searchCriteria" value="gender">
+      <label for="genderRadio">Gender</label>
+    </div>
+
+    <form id="firstName" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      
+      <button type="submit">Search</button>
+    </form>
+    <form id="lastName" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+    
+    <form id="gpa" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+
+
+    <form id="ID" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+
+    <form id="address" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+
+   <form id="gender" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+
+    <form id="level" style="display: none;">
+      <!-- <label for="searchInput">Search by: First Name</label> -->
+      <input type="text" id="searchInput" name="searchInput" />
+      <button type="submit">Search</button>
+    </form>
+
+    
+ 
+
+
+    <table id="studentTable">
+      <!-- Table headers will be added dynamically -->
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>GPA</th>
+          <th>Level</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body will be added dynamically -->
+      </tbody>
+    </table>
+
+    <script src="/search.js" defer="true"></script>
+   
+  
+  </body>
+</html>

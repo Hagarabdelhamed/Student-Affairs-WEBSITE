@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Student</title>
+</head>
+<body>
+  <h1>Edit Student</h1>
+
+  <form id="editForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName">
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <label for="gpa">GPA:</label>
+    <input type="number" id="gpa" name="gpa" step="0.01">
+
+    <label for="level">Level:</label>
+    <select id="level" name="level">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="5"></textarea>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <script>
+    document.getElementById('editForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let form = document.getElementById('editForm');
+      let data = {
+        id: document.getElementById('studentId').value,
+        firstName: form[0].value,
+        lastName: form[1].value,
+        gender: form[2].value,
+        gpa: form[3].value,
+        level: form[4].value,
+        address: form[5].value
+      };
+
+      console.log(data);
+
+      // Send the data to the server to save the changes
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/student/update",
+        data: JSON.stringify(data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (f) {
+          console.log(f);
+          if (f.success) {
+            window.location.href = '/student/list';
+          } else {
+            alert('An error occurred while saving the student');
+          }
+        },
+        error: function (e) {
+          console.error(e);
+          alert('An error occurred while saving the student');
+        }
+      });
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Student</title>
+</head>
+<body>
+  <h1>Edit Student</h1>
+
+  <form id="editForm">
+    <input type="hidden" id="studentId" name="id">
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName">
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <label for="gpa">GPA:</label>
+    <input type="number" id="gpa" name="gpa" step="0.01">
+
+    <label for="level">Level:</label>
+    <select id="level" name="level">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="5"></textarea>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <script>
+    // // Get the student ID from the URL
+    // const studentId = parseInt(window.location.href.split('/').pop());
+
+    // Send an AJAX request to get the student information
+    $.ajax({
+      type: "GET",
+      url: "/student" ,
+      dataType: 'json',
+      success: function (student) {
+        // Populate the edit form with the student's information
+        document.getElementById('studentId').value = student.id;
+        document.getElementById('firstName').value = student.firstName;
+        document.getElementById('lastName').value = student.lastName;
+        document.getElementById('gender').value = student.gender;
+        document.getElementById('gpa').value = student.gpa;
+        document.getElementById('level').value = student.level;
+        document.getElementById('address').value = student.address;
+      },
+      error: function (e) {
+        console.error(e);
+        alert('An error occurred while retrieving the student information');
+      }
+    });
+
+    document.getElementById('editForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let form = document.getElementById('editForm');
+      let data = {
+        ID: document.getElementById('studentId').value,
+        FirstName: form[0].value,
+        LastName: form[1].value,
+        Gender: form[2].value,
+        GPA: form[3].value,
+        Level: form[4].value,
+        Address: form[5].value
+      };
+
+      console.log(data);
+
+      // Send the data to the server to save the changes
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/student/update",
+        data: JSON.stringify(data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (f) {
+          console.log(f);
+          if (f.success) {
+            window.location.href = '/student/list';
+          } else {
+            alert('An error occurred while saving the student');
+          }
+        },
+        error: function (e) {
+          console.error(e);
+          alert('An error occurred while saving the student');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

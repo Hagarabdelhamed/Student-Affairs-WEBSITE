@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Forms Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="http://localhost:8080/">Home</a>
+      <a href="http://localhost:8080/add">Add Studnet</a>
+      <a href="http://localhost:8080/search">Search</a>
+      <a href="http://localhost:8080/delete">Delete</a>
+    </nav>
+
+    <h1>Add Student Form</h1>
+    <form id="numberForm">
+      <label for="numInput"
+        >Enter the Number of Forms</label
+      >
+      <input type="number" id="numInput" name="number" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      $(document).ready(function () {
+        $("#numberForm").submit(function (event) {
+          event.preventDefault();
+          var num = $("#numInput").val();
+          window.location.href = "http://localhost:8080/form?num=" + num;
+        });
+      });
+    </script>
+  </body>
+</html>

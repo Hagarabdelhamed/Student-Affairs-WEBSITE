@@ -1,0 +1,78 @@
+/* General styles */
+body {
+    font-family: sans-serif;
+  }
+  
+  nav {
+    background-color: #f2f2f2;
+    padding: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    padding: 0 0.5rem;
+    color: #333;
+  }
+  
+  
+  h1 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-left: 48%;
+  
+  }
+  
+  #recordsContainer {
+    margin-bottom: 20px;
+  }
+  
+  #recordsContainer table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #recordsContainer th,
+  #recordsContainer td {
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+    width: 80px;
+  }
+  
+  #deleteform {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  #deleteform label {
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  #deleteform input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 100px;
+    width: 150px; 
+  }
+  
+  #deleteform button {
+    padding: 5px 10px;
+    background-color: rgb(197, 19, 19);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1%;
+    
+  }
+  

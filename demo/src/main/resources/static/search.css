@@ -1,0 +1,90 @@
+/* General styles */
+body {
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: #f2f2f2;
+  padding: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0 0.5rem;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+div {
+  margin-bottom: 20px;
+  text-align: center;
+    padding: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  background-color: #04AA6D;
+  border-radius: 20px;
+  font-weight: bold;
+
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 5px;
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+  background-color: #04AA6D;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+}
+
+form {
+  margin-bottom: 20px;
+  text-align: center;
+    padding: 20px;
+}
+
+/* Show/hide form based on radio button selection */
+input[type="radio"]:checked + label + form {
+  display: block;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+ 
+ }
+
+th, td {
+  background-color: whitesmoke;
+  border: 1px solid white;
+  padding: 5px;
+  text-align: center;
+  height: 50px; 
+}
+
+th {
+  background-color: #04AA6D;
+  font-weight: bold;
+}

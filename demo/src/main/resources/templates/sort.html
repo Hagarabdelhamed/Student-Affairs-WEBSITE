@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+  <link rel="stylesheet" href="data.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="http://localhost:8080/">Home</a>
+    <a href="http://localhost:8080/add">Add Studnet</a>
+    <a href="http://localhost:8080/search">Search</a>
+    <a href="http://localhost:8080/delete">Delete</a>
+  </nav>
+    <h1>Student Table</h1>
+
+<div>
+    <label for="sortColumn">Sort Column:</label>
+    <select id="sortColumn">
+        <option value="id">ID</option>
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="gender">Gender</option>
+        <option value="gpa">GPA</option>
+        <option value="level">Level</option>
+        <option value="address">Address</option>
+    </select>
+
+    <label for="sortOrder">Sort Order:</label>
+    <select id="sortOrder">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+
+    
+</div>
+   <div id="button"><button onclick="sortTable()">Submit</button></div>
+
+    <table id="studentTable">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>GPA</th>
+            <th>Level</th>
+            <th>Address</th>
+        </tr>
+    </table>
+
+    <script>
+        fetch('/sort') // Replace with the actual endpoint URL
+          .then(response => response.json())
+          .then(studentsData => {
+            const tableElement = document.getElementById('studentTable');
+
+            for (const student of studentsData) {
+              const row = tableElement.insertRow();
+              row.insertCell().textContent = student.id;
+              row.insertCell().textContent = student.firstName;
+              row.insertCell().textContent = student.lastName;
+              row.insertCell().textContent = student.gender;
+              row.insertCell().textContent = student.gpa;
+              row.insertCell().textContent = student.level;
+              row.insertCell().textContent = student.address;
+            }
+            console.log(studentsData);
+            console.log(student);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+    </script>
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+    <link rel="stylesheet" href="data.css" />
+</head>
+<body>
+
+<nav>
+    <a href="http://localhost:8080/">Home</a>
+    <a href="http://localhost:8080/add">Add Student</a>
+    <a href="http://localhost:8080/search">Search</a>
+    <a href="http://localhost:8080/delete">Delete</a>
+</nav>
+
+<h1>Student Table</h1>
+
+<div>
+    <label for="sortColumn">Sort Column:</label>
+    <select id="sortColumn">
+        <option value="id">ID</option>
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="gender">Gender</option>
+        <option value="gpa">GPA</option>
+        <option value="level">Level</option>
+        <option value="address">Address</option>
+    </select>
+
+    <label for="order">Sort Order:</label>
+    <select id="order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+</div>
+
+<div id="button"><button onclick="submitForm()">Submit</button></div>
+
+<table id="studentTable">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>GPA</th>
+        <th>Level</th>
+        <th>Address</th>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function () {
+      $("#numberForm").submit(function (event) {
+        event.preventDefault();
+        var order = $("#order").val();
+        var sortedBy = $("#sortedBy").val();
+        window.location.href = "http://localhost:8080/sort?order=?sortedBy=" + sortedBy + order ;
+      });
+    });
+  </script>
+</body>
+</html>
